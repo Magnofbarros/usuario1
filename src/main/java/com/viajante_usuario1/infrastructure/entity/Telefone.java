@@ -1,22 +1,21 @@
 package com.viajante_usuario1.infrastructure.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name="telefone")
+@Builder
 public class Telefone {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "numero")
+    @Column(name = "numero", length = 15)
     private String numero;
-    @Column(name = "ddd")
+    @Column(name = "ddd", length = 3)
     private String ddd;
 }
