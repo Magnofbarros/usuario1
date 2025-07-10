@@ -70,4 +70,15 @@ public class Usuario1Converter {
     public List<TelefoneDTO>paraListaTelefoneDTO(List<Telefone> telefoneDTOS){
         return telefoneDTOS.stream().map(this::paraTelefoneDTO).toList();
     }
+    public Usuario1 updateUsuario1(Usuario1DTO usuario1DTO, Usuario1 entity){
+        return Usuario1.builder()
+                .nome(usuario1DTO.getNome() != null ? usuario1DTO.getNome() : entity.getNome())
+                .id(entity.getId())
+                .senha(usuario1DTO.getSenha()!= null? usuario1DTO.getSenha() : entity.getSenha())
+                .email(usuario1DTO.getEmail()!= null? usuario1DTO.getEmail() : entity.getEmail())
+                .enderecos(entity.getEnderecos())
+                .telefones(entity.getTelefones())
+                .build();
+
+    }
 }
